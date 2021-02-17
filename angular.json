@@ -93,7 +93,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "../my-app/node_modules/leaflet.geodesic/dist/leaflet.geodesic.umd.min.js.sha256"
+            ]
           }
         },
         "lint": {
@@ -124,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "my-app"
+  "defaultProject": "my-app",
+  "cli": {
+    "analytics": false
+  }
 }
