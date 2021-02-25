@@ -15,7 +15,7 @@ export class EmployeeComponent implements OnInit {
   }
   public NameS: Uday = {
     name: 'uday',
-    age: '89',
+    age: "83",
     location: "KU"
   }
 
@@ -50,7 +50,7 @@ export class EmployeeComponent implements OnInit {
       [28.558590, 77.124001]
     ]
 
-    let mymap = L.map('mapid').setView([20.5937, 78.9629], 5);
+    let mymap = L.map('mapid').setView([52.37336828819957, -31.94861756739893], 17);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '2020 Copyright &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
@@ -79,11 +79,13 @@ export class EmployeeComponent implements OnInit {
     //   console.info(e);
     // }).addTo(mymap);
 
+
     var polygon = L.polygon([
-      [28.567441, 77.085883],
-      [28.566740, 77.085438],
-      [28.557968, 77.123862],
-      [28.558590, 77.124001]
+      [52.37336828819957, -31.94861756739893],
+      [52.373304536303785, -31.94973261520167],
+      [52.37212152917504, -31.949528843638824],
+      [52.372153867201185, -31.9483824951364],
+      [52.37336828819957, -31.94861756739893],
     ], { color: 'red', weight: 2 }).addTo(mymap);
 
     // let route = L.Routing.control({
@@ -104,27 +106,27 @@ export class EmployeeComponent implements OnInit {
         new L.LatLng(13.1986, 77.7066), // Bangaluru
         new L.LatLng(17.2403, 78.4294), //hyderabad
         new L.LatLng(28.556160, 77.100281), // delhi
-        // new L.LatLng(33.636667, -84.428056), // usa
+        new L.LatLng(33.636667, -84.428056), // usa
       ]
     ];
-
 
     var greenIcon = L.icon({
       iconUrl: '../../assets/flight.png',
       // shadowUrl: '../../assets/flight.png',
       iconSize: [70, 70], // size of the icon
-      shadowSize: [50, 64], // size of the shadow
+      // shadowSize: [50, 64], // size of the shadow
       shadowAnchor: [4, 62],  // the same for the shadow
-      popupAnchor: [-9, -76] // point from which the popup should open relative to the iconAnchor
+      popupAnchor: [-2, -50] // point from which the popup should open relative to the iconAnchor
     });
 
     places.forEach((item: any) => {
       item.forEach((data: any) => {
         var marker = L.marker([data?.lat, data?.lng], { icon: greenIcon }).addTo(mymap);
-        // marker.bindPopup("<b></b><br>air port ").openPopup();
+        marker.bindPopup("<b></b><br>air port ").openPopup();
       })
 
     })
+
     const options = {
       weight: 2,
       opacity: 0.6,
